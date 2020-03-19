@@ -1,7 +1,7 @@
 {
   "name": "tchatche-react",
-  "version": "0.0.9",
-  "description": "",
+  "version": "0.3.0",
+  "description": "Simple chat bot. Supports button and text input responses.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
@@ -9,8 +9,10 @@
     "build": "tsc && cp src/types.d.ts dist/types.d.ts",
     "prepublish": "npm run build"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "chat bot"
+  ],
+  "author": "Creadi",
   "license": "GPL-2.0",
   "devDependencies": {
     "@types/react": "^16.9.3",
