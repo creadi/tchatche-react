@@ -42,7 +42,7 @@ const Buttons = ({ data, storeAction, userAction }: ButtonsProps) => {
     <React.Fragment>
       {buttons.map((button, index) => (
         <button
-          className="user-action user-action-button"
+          className="user-action-button"
           key={index}
           onClick={onClick(button, data, onSubmit, storeAction)}
           type="button"
@@ -54,7 +54,7 @@ const Buttons = ({ data, storeAction, userAction }: ButtonsProps) => {
   )
 }
 
-const onKeyUp = (
+const handleSubmit = (
   data: Data,
   onSubmit: (
     userInput: string,
@@ -62,13 +62,12 @@ const onKeyUp = (
     setData: (property: string, value: any) => void,
   ) => OnSubmitResponse,
   storeAction: StoreAction,
-) => (e: any) => {
-  if (e.key === 'Enter') {
-    onSubmit(e.target.value, data, storeAction.setData).then(submited => {
+) => (e: any) =>
+  onSubmit(e.target.elements.userinput.value, data, storeAction.setData).then(
+    submited => {
       storeAction.userAnswered(submited)
-    })
-  }
-}
+    },
+  )
 
 interface InputProps {
   data: Data
@@ -79,12 +78,23 @@ interface InputProps {
 const Input = ({ data, storeAction, userAction }: InputProps) => {
   const { placeholder, type, onSubmit } = userAction
   return (
-    <input
-      className="user-action user-action-input"
-      placeholder={placeholder || ''}
-      type={type || 'text'}
-      onKeyUp={onKeyUp(data, onSubmit, storeAction)}
-    />
+    <div className="user-action">
+      <form onSubmit={handleSubmit(data, onSubmit, storeAction)}>
+        <input
+          className="user-action-input"
+          name="userinput"
+          placeholder={placeholder || ''}
+          type={type || 'text'}
+        />
+        <button
+          className="user-action-submit"
+          type="submit"
+          aria-label="Submit"
+        >
+          ⏎
+        </button>
+      </form>
+    </div>
   )
 }
 
