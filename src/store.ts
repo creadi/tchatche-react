@@ -146,7 +146,7 @@ const addMessage = (msg: { message: string; isBot?: boolean }) => {
 const focusInput = () => {
   // @ts-ignore
   const input: HTMLInputElement | null = document.querySelector(
-    '#tchatche-user-action > input',
+    '#tchatche-user-action input',
   )
   if (input) {
     runIn(100)(() => input.focus())
