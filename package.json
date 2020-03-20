@@ -12,7 +12,7 @@
   "keywords": [
     "chat bot"
   ],
-  "author": "Creadi",
+  "author": "Creadi AG <info@creadi.ch>",
   "license": "GPL-2.0",
   "devDependencies": {
     "@types/react": "^16.9.3",
