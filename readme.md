@@ -21,3 +21,6 @@ export default <Tchatche messages={messages} onEnd={onEnd} pace={300} />
 ```
 
 Find a more thorough explanation of the structure of `BotMessage` [here](https://www.npmjs.com/package/tchatche)
+
+## Release new version
+- A release on github will automatically trigger npm publishing. Make sure versions are in sync.
