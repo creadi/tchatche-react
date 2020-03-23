@@ -62,12 +62,13 @@ const handleSubmit = (
     setData: (property: string, value: any) => void,
   ) => OnSubmitResponse,
   storeAction: StoreAction,
-) => (e: React.FormEvent<HTMLFormElement>) => {
+) => (e: any) => {
   e.preventDefault()
-  const target = e.target as HTMLFormElement
-  const input = target.elements.userinput as HTMLInputElement
-
-  return onSubmit(input.value, data, storeAction.setData).then(submited => {
+  return onSubmit(
+    e.target.elements.userinput.value,
+    data,
+    storeAction.setData,
+  ).then(submited => {
     storeAction.userAnswered(submited)
   })
 }
