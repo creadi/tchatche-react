@@ -62,12 +62,16 @@ const handleSubmit = (
     setData: (property: string, value: any) => void,
   ) => OnSubmitResponse,
   storeAction: StoreAction,
-) => (e: any) =>
-  onSubmit(e.target.elements.userinput.value, data, storeAction.setData).then(
-    submited => {
-      storeAction.userAnswered(submited)
-    },
-  )
+) => (e: any) => {
+  e.preventDefault()
+  return onSubmit(
+    e.target.elements.userinput.value,
+    data,
+    storeAction.setData,
+  ).then(submited => {
+    storeAction.userAnswered(submited)
+  })
+}
 
 interface InputProps {
   data: Data

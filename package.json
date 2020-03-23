@@ -1,7 +1,7 @@
 {
   "name": "@creadi/tchatche-react",
   "description": "Simple chat bot. Supports button and text input responses.",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "author": "Creadi AG <info@creadi.ch>",
   "dependencies": {
     "redux": "^4.0.4"
